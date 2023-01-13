@@ -143,9 +143,16 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
-            <x-jet-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+            <x-jet-responsive-nav-link href="{{ route('home') }}" :active="request()->routeIs('home')">
                 {{ __('Home') }}
             </x-jet-responsive-nav-link>
+            <x-jet-responsive-nav-link href="{{ route('about') }}" :active="request()->routeIs('about')">
+                {{ __('Acerca de la Empresa') }}
+            </x-jet-responsive-nav-link>
+            <x-jet-responsive-nav-link href="{{ route('contact-us') }}" :active="request()->routeIs('contact-us')">
+                {{ __('Contáctanos') }}
+            </x-jet-responsive-nav-link>
+
         </div>
 
         {{-- <!-- Responsive Settings Options -->
