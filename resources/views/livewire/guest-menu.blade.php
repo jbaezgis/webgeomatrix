@@ -16,7 +16,7 @@
                         {{ __('Inicio') }}
                     </x-jet-nav-link>
                     <x-jet-nav-link href="{{ route('about') }}" :active="request()->routeIs('about')">
-                        {{ __('Acerca de la Compañia') }}
+                        {{ __('Acerca de la Empresa') }}
                     </x-jet-nav-link>
                     <x-jet-nav-link href="{{ route('contact-us') }}" :active="request()->routeIs('contact-us')">
                         {{ __('Contáctanos') }}
