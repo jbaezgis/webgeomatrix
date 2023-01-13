@@ -13,7 +13,13 @@
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-jet-nav-link href="{{ route('home') }}" :active="request()->routeIs('home')">
-                        {{ __('Home') }}
+                        {{ __('Inicio') }}
+                    </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('about') }}" :active="request()->routeIs('about')">
+                        {{ __('Acerca de la Compañia') }}
+                    </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('contact-us') }}" :active="request()->routeIs('contact-us')">
+                        {{ __('Contáctanos') }}
                     </x-jet-nav-link>
                 </div>
             </div>

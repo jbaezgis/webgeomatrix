@@ -4,10 +4,10 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 
-class About extends Component
+class ContactUs extends Component
 {
     public function render()
     {
-        return view('livewire.about')->layout('layouts.guest');
+        return view('livewire.contact-us')->layout('layouts.guest');
     }
 }

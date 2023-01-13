@@ -73,17 +73,17 @@
             </span>
             <ul class="flex flex-wrap items-center mt-3 text-sm text-gray-500 dark:text-gray-400 sm:mt-0">
                 <li>
-                    <a href="{{ route('about') }}" class="mr-4 hover:underline md:mr-6 ">{{ __('About') }}</a>
+                    <a href="{{ route('about') }}" class="mr-4 hover:underline md:mr-6 ">{{ __('Acerca de la Companía') }}</a>
                 </li>
                 <li>
-                    <a href="#" class="mr-4 hover:underline md:mr-6">{{ __('Privacy Policy') }}</a>
+                    <a href="{{ route('contact-us') }}" class="mr-4 hover:underline md:mr-6">{{ __('Contáctanos') }}</a>
                 </li>
-                <li>
+                {{-- <li>
                     <a href="#" class="mr-4 hover:underline md:mr-6">{{ __('Terms & Conditions') }}</a>
                 </li>
                 <li>
                     <a href="#" class="hover:underline">{{ __('Cookies') }}</a>
-                </li>
+                </li> --}}
             </ul>
         </footer>
 

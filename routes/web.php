@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Livewire\About;
+use App\Http\Livewire\ContactUs;
 use App\Http\Livewire\Home;
 use Illuminate\Support\Facades\Route;
 
@@ -17,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', Home::class)->name('home');
 Route::get('about', About::class)->name('about');
+Route::get('contact-us', ContactUs::class)->name('contact-us');
 
 Route::middleware([
     'auth:sanctum',
