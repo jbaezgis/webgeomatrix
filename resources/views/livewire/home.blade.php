@@ -29,7 +29,7 @@
 
         <div class="grid gap-2 mb-8 mx-2 md:mb-12 md:grid-cols-2 lg:grid-cols-3">
             <figure class="flex flex-col justify-center rounded p-8 bg-white">
-                <blockquote class="max-w-2xl mx-auto text-gray-500">
+                <blockquote class="max-w-2xl text-gray-500">
                     {{-- <div class="flex justify-center">
                         <img class="" src="{{ asset('images/icons/analisis.png') }}" alt="">
                     </div> --}}
@@ -38,7 +38,7 @@
                 </blockquote> 
             </figure>
             <figure class="flex flex-col justify-center p-8 bg-white">
-                <blockquote class="max-w-2xl mx-auto text-gray-500">
+                <blockquote class="max-w-2xl text-gray-500">
                     {{-- <img class="" src="{{ asset('images/icons/asesoria.png') }}" alt=""> --}}
                     <h3 class="text-lg font-semibold text-gray-900 py-2">Administración y Seguimiento de Proyectos</h3>
                     <p class="font-light">Se responsabiliza por la ejecución de proyectos, ahorrando de esta manera valiosos recursos a empresas públicas y privadas. Esto incluye asistencia y seguimiento en programas sectoriales y monitoreo ambiental.</p>
@@ -46,7 +46,7 @@
                 
             </figure>
             <figure class="flex flex-col justify-center p-8 bg-white">
-                <blockquote class="max-w-2xl mx-auto text-gray-500">
+                <blockquote class="max-w-2xl text-gray-500">
                     {{-- <img class="" src="{{ asset('images/icons/capacitacion.png') }}" alt=""> --}}
                     <h3 class="text-lg font-semibold text-gray-900 py-2">Planificación y Desarrollo</h3>
                     <p class="font-light">Coordina la realización de diagnósticos y suministra servicios de diseño de sistemas geomáticos con objetivos de desarrollo, para entidades públicas y privadas con funciones de ejecución y operación de proyectos. </p>
@@ -54,7 +54,7 @@
                 
             </figure>
             <figure class="flex flex-col p-8 bg-white border-gray-200">
-                <blockquote class="max-w-2xl mx-auto text-gray-500">
+                <blockquote class="max-w-2xl text-gray-500">
                     {{-- <img class="" src="{{ asset('images/icons/catastro.png') }}" alt=""> --}}
                     <h3 class="text-lg font-semibold text-gray-900 py-2">Desarrollo de sistemas de información geográfica (SIG)</h3>
                     <p class="font-light">Ha diseñado y desarrollado sistemas orientados al planeamiento físico, definición de trayectorias de líneas de transmisión, gestión ambiental, ordenamiento territorial en diferentes sectores.</p>
@@ -62,7 +62,7 @@
                 
             </figure>
             <figure class="flex flex-col p-8 bg-white border-gray-200">
-                <blockquote class="max-w-2xl mx-auto text-gray-500">
+                <blockquote class="max-w-2xl text-gray-500">
                     {{-- <img class="" src="{{ asset('images/icons/diagnostico.png') }}" alt=""> --}}
                     <h3 class="text-lg font-semibold text-gray-900 py-2">Capacitación</h3>
                     <p class="font-light">Acompaña sus consultorías, con reuniones de coordinación, de presentación de resultados y de trabajo integrado de manera que las consultorías tienen un componente de capacitación y transferencia de conocimientos intrínsecos.  Adicionalmente hemos efectuado proyectos de capacitación específica a instituciones como el Programa de Modernización de la Jurisdicción de Tierras, el Consejo Nacional de Asuntos Urbanos, Ayuntamiento de Santiago de Los Caballeros, entre otras. </p>
@@ -70,7 +70,7 @@
                 
             </figure>
             <figure class="flex flex-col p-8 bg-white border-gray-200">
-                <blockquote class="max-w-2xl mx-auto text-gray-500">
+                <blockquote class="max-w-2xl text-gray-500">
                     {{-- <img class="" src="{{ asset('images/icons/levantamiento.png') }}" alt=""> --}}
                     <h3 class="text-lg font-semibold text-gray-900 py-2">Investigación</h3>
                     <p class="font-light">Puede formar y coordinar grupos constituidos por expertos en diferentes campos para estudiar problemas específicos de apoyo a objetivos concretos en desarrollo y fortalecimiento institucional y económico, planificación de inversiones, solución de problemas técnicos, adaptación de tecnologías y evaluación de impactos ambientales y socio-culturales. </p>
@@ -78,7 +78,7 @@
                 
             </figure>
             <figure class="flex flex-col p-8  bg-white border-gray-200">
-                <blockquote class="max-w-2xl mx-auto text-gray-500">
+                <blockquote class="max-w-2xl text-gray-500">
                     {{-- <img class="" src="{{ asset('images/icons/soluciones.png') }}" alt=""> --}}
                     <h3 class="text-lg font-semibold text-gray-900 py-2">Estudios Básicos en Proyectos de Inversión y Desarrollo</h3>
                     <p class="font-light">Contamos con personal especializado para soporte técnico a equipos multidisciplinarios en una amplia gama de estudios y consultorías.</p>
@@ -99,7 +99,7 @@
             </figure>
 
             <figure class="flex flex-col p-8  bg-white border-gray-200">
-                <blockquote class="max-w-2xl mx-auto text-gray-500">
+                <blockquote class="max-w-2xl text-gray-500">
                     {{-- <img class="" src="{{ asset('images/icons/soluciones.png') }}" alt=""> --}}
                     <h3 class="text-lg font-semibold text-gray-900 py-2">Diagnósticos y Evaluaciones</h3>
                     {{-- <p class="font-light">Contamos con personal especializado para soporte técnico a equipos multidisciplinarios en una amplia gama de estudios y consultorías.</p> --}}
@@ -117,7 +117,7 @@
             </figure>
 
             <figure class="flex flex-col p-8  bg-white border-gray-200">
-                <blockquote class="max-w-2xl mx-auto text-gray-500">
+                <blockquote class="max-w-2xl text-gray-500">
                     {{-- <img class="" src="{{ asset('images/icons/soluciones.png') }}" alt=""> --}}
                     <h3 class="text-lg font-semibold text-gray-900 py-2">Soluciones Tecnológicas</h3>
                     {{-- <p class="font-light">Contamos con personal especializado para soporte técnico a equipos multidisciplinarios en una amplia gama de estudios y consultorías.</p> --}}
@@ -136,7 +136,7 @@
             </figure>
 
             <figure class="flex flex-col p-8  bg-white border-gray-200">
-                <blockquote class="max-w-2xl mx-auto text-gray-500">
+                <blockquote class="max-w-2xl text-gray-500">
                     {{-- <img class="" src="{{ asset('images/icons/soluciones.png') }}" alt=""> --}}
                     <h3 class="text-lg font-semibold text-gray-900 py-2">Levantamientos Topográficos y Cartografía</h3>
                     {{-- <p class="font-light">Contamos con personal especializado para soporte técnico a equipos multidisciplinarios en una amplia gama de estudios y consultorías.</p> --}}
@@ -153,8 +153,8 @@
                 
             </figure>
 
-            <figure class="flex flex-col p-8  bg-white border-gray-200">
-                <blockquote class="max-w-2xl mx-auto text-gray-500">
+            <figure class="flex flex-col p-8 bg-white border-gray-200">
+                <blockquote class="max-w-2xl text-gray-500">
                     {{-- <img class="" src="{{ asset('images/icons/soluciones.png') }}" alt=""> --}}
                     <h3 class="text-lg font-semibold text-gray-900 py-2">Catastro y Mensuras</h3>
                     {{-- <p class="font-light">Contamos con personal especializado para soporte técnico a equipos multidisciplinarios en una amplia gama de estudios y consultorías.</p> --}}
@@ -170,7 +170,7 @@
             </figure>
 
             <figure class="flex flex-col p-8  bg-white border-gray-200">
-                <blockquote class="max-w-2xl mx-auto text-gray-500">
+                <blockquote class="max-w-2xl text-gray-500">
                     {{-- <img class="" src="{{ asset('images/icons/soluciones.png') }}" alt=""> --}}
                     <h3 class="text-lg font-semibold text-gray-900 py-2">Asesorías Especiales</h3>
                     <p class="font-light">Asesorías personalizadas para evaluación de necesidades e implementación de estrategias en los diversos componentes que integran las soluciones geomáticas:</p>
