@@ -3,6 +3,8 @@
 use App\Http\Livewire\About;
 use App\Http\Livewire\ContactUs;
 use App\Http\Livewire\Home;
+use App\Http\Livewire\Dashboard;
+use App\Http\Livewire\Diagnosticos;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,4 +30,10 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+});
+
+// Administration routes
+Route::middleware(['auth:sanctum', config('jetstream.auth_session'),'verified'])->prefix('admin')->name('admin.')->group(function () {
+    Route::get('/', Dashboard::class)->name('dashboard');
+    Route::get('diagnosticos', Diagnosticos::class)->name('diagnosticos');
 });
