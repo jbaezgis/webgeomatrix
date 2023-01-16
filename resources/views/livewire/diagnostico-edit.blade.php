@@ -78,11 +78,13 @@
                         </div>
                     </div>
 
-                    <div class="flex gap-2">
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-2">
                         @foreach ($images as $item)
-                        <div class="">
+                        <div class="w-full max-w-7xl mx-auto">
                             <div class="relative">
-                                <img class="max-w-sm" src="{{ Storage::url($item->url) }}" alt="">
+                                <div>
+                                    <img class="" src="{{ Storage::url($item->url) }}" alt="">
+                                </div>
                                 <div class="absolute bottom-1 flex gap-2 px-2">
                                     <div> 
                                         <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
