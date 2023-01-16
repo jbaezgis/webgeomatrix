@@ -235,7 +235,7 @@
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 px-2 space-y-1 text-center">
             @auth
-                <x-jet-responsive-nav-link href="{{ url('dashboard') }}" :active="request()->is('dashboard')">
+                <x-jet-responsive-nav-link href="{{ url('admin') }}" :active="request()->is('dashboard')">
                     {{ __('Dashboard') }}
                 </x-jet-responsive-nav-link>
                 <x-jet-responsive-nav-link href="{{ url('admin/diagnosticos') }}" :active="request()->is('admin/diagnosticos')">
