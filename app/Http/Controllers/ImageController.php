@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class DiagnosticoController extends Controller
+class ImageController extends Controller
 {
     //
 }

@@ -5,14 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Caracteristica extends Model
+class Image extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-		"diagnostico_id", 
-		"entrada_proveedor", 
-		"tratamiento", 
-		"salida_cliente", 
+		"model", 
+		"model_id", 
+		"url", 
     ];
 }

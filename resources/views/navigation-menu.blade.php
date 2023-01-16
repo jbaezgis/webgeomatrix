@@ -104,7 +104,7 @@
                 @auth
                 <div class="">
                     {{-- Admin dropdown menu --}}
-                    <x-jet-dropdown align="right" width="60">
+                    {{-- <x-jet-dropdown align="right" width="60">
                         <x-slot name="trigger">
                             <span class="inline-flex rounded-md">
                                 <button type="button" class="inline-flex items-center px-3 py-2 border border-transparent leading-4 rounded-md text-gray-500 bg-white hover:bg-gray-50 hover:text-gray-700 focus:outline-none focus:bg-gray-50 active:bg-gray-50 transition">
@@ -160,7 +160,7 @@
                                 </x-jet-dropdown-link>
                             </div>
                         </x-slot>
-                    </x-jet-dropdown>
+                    </x-jet-dropdown> --}}
 
                 </div>
                     <div class="ml-3 relative">

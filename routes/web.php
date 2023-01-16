@@ -1,9 +1,11 @@
 <?php
 
+use App\Http\Controllers\DiagnosticosController;
 use App\Http\Livewire\About;
 use App\Http\Livewire\ContactUs;
 use App\Http\Livewire\Home;
 use App\Http\Livewire\Dashboard;
+use App\Http\Livewire\DiagnosticoEdit;
 use App\Http\Livewire\Diagnosticos;
 use Illuminate\Support\Facades\Route;
 
@@ -22,18 +24,17 @@ Route::get('/', Home::class)->name('home');
 Route::get('about', About::class)->name('about');
 Route::get('contact-us', ContactUs::class)->name('contact-us');
 
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified'
-])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
-});
-
 // Administration routes
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'),'verified'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/', Dashboard::class)->name('dashboard');
+
     Route::get('diagnosticos', Diagnosticos::class)->name('diagnosticos');
+    Route::get('diagnostico/show/{id}', [DiagnosticosController::class, 'show'])->name('diagnostico-show');
+    Route::get('diagnostico/create', [DiagnosticosController::class, 'create'])->name('diagnostico-create');
+    Route::post('diagnostico/store', [DiagnosticosController::class, 'store'])->name('diagnostico-store');
+    // Route::get('diagnostico/edit/{id}', [DiagnosticosController::class, 'edit'])->name('diagnostico-edit');
+    Route::patch('diagnostico/update/{id}', [DiagnosticosController::class, 'update'])->name('diagnostico-update');
+
+    Route::get('/diagnostico/edit/{id}', DiagnosticoEdit::class)->name('diagnostico-edit');
+
 });

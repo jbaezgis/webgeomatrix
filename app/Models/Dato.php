@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Dato extends Model
 {
     use HasFactory;
+    
+    protected $fillable = [
+		"diagnostico_id", 
+		"descripcion", 
+		"comentario", 
+    ];
 }
