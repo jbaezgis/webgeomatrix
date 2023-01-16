@@ -51,6 +51,12 @@
                     <button wire:click="estructura_organizativa" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded text-sm px-5 py-1 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Guardar</button>
                 </div>
             @endif
+            
+            <div class="mermaid">
+
+                {!! $estructura_organizativa !!}
+
+            </div>
 
             {{-- reportaje fotografico --}}
             <div class="mt-6 border bg-white rounded-lg p-4">
