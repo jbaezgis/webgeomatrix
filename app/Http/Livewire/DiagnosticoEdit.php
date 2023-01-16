@@ -119,7 +119,7 @@ class DiagnosticoEdit extends Component
         $this->validate();
 
         $image = $this->url->store('diagnosticos/'.$this->diagnostico->id);
-
+        
         Image::create([
             'model' => 'diagnosticos',
             'model_id' => $this->diagnostico->id,

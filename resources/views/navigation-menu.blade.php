@@ -238,11 +238,8 @@
                 <x-jet-responsive-nav-link href="{{ url('dashboard') }}" :active="request()->is('dashboard')">
                     {{ __('Dashboard') }}
                 </x-jet-responsive-nav-link>
-                <x-jet-responsive-nav-link href="{{ url('orders') }}" :active="request()->is('orders')">
-                    {{ __('Ordenes') }}
-                </x-jet-responsive-nav-link>
-                <x-jet-responsive-nav-link href="{{ url('clients') }}" :active="request()->is('clients')">
-                    {{ __('Clientes') }}
+                <x-jet-responsive-nav-link href="{{ url('admin/diagnosticos') }}" :active="request()->is('admin/diagnosticos')">
+                    {{ __('Diagnósticos') }}
                 </x-jet-responsive-nav-link>
             @endauth
             @guest
