@@ -15,10 +15,12 @@ return new class extends Migration
     {
         Schema::create('caracteristicas', function (Blueprint $table) {
             $table->id();
-            $table->integer('diagnostico_id')->nullable();
+            $table->integer('flujo_id')->nullable();
             $table->string('entrada_proveedor')->nullable();
             $table->string('tratamiento')->nullable();
             $table->string('salida_cliente')->nullable();
+            $table->boolean('sig')->nullable();
+            $table->string('comentario')->nullable();
             $table->timestamps();
         });
     }

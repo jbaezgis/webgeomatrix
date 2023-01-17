@@ -76,7 +76,16 @@
                 @endif --}}
 
                 <!-- Settings Dropdown -->
-                {{-- <div class="ml-3 relative">
+                @guest
+                    <div class="ml-3 relative">
+                        <a href="{{ route('login') }}" class="text-white bg-green-500 hover:bg-green-600 focus:ring-4 focus:ring-green-300 font-medium rounded text-sm px-5 py-2 mr-2 mb-2 focus:outline-none">Iniciar Sección</a>
+                    </div>
+                @endguest
+
+                @auth
+                    
+                
+                <div class="ml-3 relative">
                     <x-jet-dropdown align="right" width="48">
                         <x-slot name="trigger">
                             @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
@@ -98,6 +107,13 @@
 
                         <x-slot name="content">
                             <!-- Account Management -->
+                            <div class="block px-4 py-2 text-xs text-gray-400">
+                                {{ __('Administración') }}
+                            </div>
+                            <x-jet-dropdown-link href="{{ route('admin.diagnosticos') }}">
+                                {{ __('Diagnósticos') }}
+                            </x-jet-dropdown-link>
+
                             <div class="block px-4 py-2 text-xs text-gray-400">
                                 {{ __('Manage Account') }}
                             </div>
@@ -125,7 +141,8 @@
                             </form>
                         </x-slot>
                     </x-jet-dropdown>
-                </div> --}}
+                </div>
+                @endauth
             </div>
 
             <!-- Hamburger -->
@@ -152,25 +169,33 @@
             <x-jet-responsive-nav-link href="{{ route('contact-us') }}" :active="request()->routeIs('contact-us')">
                 {{ __('Contáctanos') }}
             </x-jet-responsive-nav-link>
+            
+            @guest
+                <x-jet-responsive-nav-link href="{{ route('login') }}" :active="request()->routeIs('login')">
+                    {{ __('Iniciar Sección') }}
+                </x-jet-responsive-nav-link>
+            @endguest
 
         </div>
 
-        {{-- <!-- Responsive Settings Options -->
-        <div class="pt-4 pb-1 border-t border-gray-200">
-            <div class="flex items-center px-4">
-                @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
-                    <div class="shrink-0 mr-3">
-                        <img class="h-10 w-10 rounded-full object-cover" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
+        <!-- Responsive Settings Options --> 
+        @auth
+            <div class="pt-4 pb-1 border-t border-gray-200">
+                <div class="flex items-center px-4">
+                    @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
+                        <div class="shrink-0 mr-3">
+                            <img class="h-10 w-10 rounded-full object-cover" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
+                        </div>
+                    @endif
+
+                    <div>
+                        <div class="font-medium text-base text-gray-800">{{ Auth::user()->name }}</div>
+                        <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
                     </div>
-                @endif
-
-                <div>
-                    <div class="font-medium text-base text-gray-800">{{ Auth::user()->name }}</div>
-                    <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
                 </div>
-            </div>
 
-            
-        </div> --}}
+                
+            </div>
+        @endauth
     </div>
 </nav>

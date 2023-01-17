@@ -24,13 +24,5 @@ class Diagnostico extends Model
     public function flujos(){
         return $this->hasMany(Flujo::class);
 	}
-    
-    public function carateristicas(){
-        return $this->hasMany(Caracteristica::class);
-    }
-    
-    public function datos(){
-        return $this->hasMany(Dato::class);
-    }
 
 }

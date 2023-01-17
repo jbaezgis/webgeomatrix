@@ -13,11 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('datos', function (Blueprint $table) {
+        Schema::create('recursos', function (Blueprint $table) {
             $table->id();
             $table->integer('diagnostico_id')->nullable();
-            $table->string('descripcion')->nullable();
-            $table->text('comentario')->nullable();
+            $table->string('equipo')->nullable();
+            $table->string('marca_modelo')->nullable();
+            $table->string('capacidades')->nullable();
+            $table->boolean('red_servidor')->nullable();
+            $table->boolean('acceso_internet')->nullable();
+            $table->string('personal_asignado')->nullable();
             $table->timestamps();
         });
     }
@@ -29,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('datos');
+        Schema::dropIfExists('recursos');
     }
 };

@@ -16,8 +16,12 @@ class DiagnosticoEdit extends Component
     use WithFileUploads;
 
     
-    public $diagnostico;
+    public $diagnostico, $diagnosticoId;
     public $image;
+    public $modalFormVisible = false;
+    public $modalConfirmDeleteFlujo = false;
+    public $modalConfirmDeleteCaracteristica = false;
+    public $modalCaracteristicaFormVisible = false;
     public $flujos, $caracteristicas, $datos, $images;
     public $objetivos_actividades, $estructura_organizativa, $observaciones_generales, $observaciones_medios;
     
@@ -26,13 +30,10 @@ class DiagnosticoEdit extends Component
     public $modalConfirmDeleteImage = false;
 
     // Flujos
-    public $f_diagnostico_id, $f_descripcion;
+    public $flujo_id, $f_diagnostico_id, $f_descripcion;
 
     // Caracteristicas
-    public $c_diagnostico_id, $entrada_proveedor, $tratamiento, $salida_cliente;
-
-    // Datos
-    public $d_diagnostico_id, $d_descripcion, $comentario;
+    public $caracteristicaId, $entrada_proveedor, $tratamiento, $salida_cliente, $sig, $comentario;
 
     // Hide/Show Botones
     public $o_a;
@@ -155,38 +156,120 @@ class DiagnosticoEdit extends Component
         $this->reset(['f_diagnostico_id', 'f_descripcion']);
     }
 
+    public function resetFDescription()
+    {
+        $this->reset(['f_diagnostico_id', 'f_descripcion']);
+    }
+
+    public function updateFlujoShowModal($id)
+    {
+        // $this->resetValidation();
+        // $this->reset();
+        $this->reset(['f_diagnostico_id', 'f_descripcion']);
+        $this->flujo_id = $id;
+        $data = Flujo::find($this->flujo_id);
+        $this->modalFormVisible = true;
+        $this->f_descripcion = $data->descripcion;
+        
+    }
+
+    public function updateFlujo()
+    {
+        // $this->validate();
+        Flujo::where('id', $this->flujo_id)
+            ->update([
+                'diagnostico_id' => $this->diagnostico->id,
+                'descripcion' => $this->f_descripcion,
+            ]);
+        $this->reset(['f_diagnostico_id', 'f_descripcion']);
+        $this->modalFormVisible = false;
+    }
+
+    public function deleteFlujoShowModal($id)
+    {
+        $this->flujo_id = $id;
+        $this->modalConfirmDeleteFlujo = true;
+    }
+
+    public function deleteFlujo()
+    {
+        $flujo = Flujo::find($this->flujo_id);
+        Caracteristica::where('flujo_id', $flujo->id)->delete();
+        $flujo->delete();
+        $this->modalConfirmDeleteFlujo = false;
+    }
+    // End flujo
+
     // Caracteristicas
     public function createCaracteristica()
     {
-
         Caracteristica::create([
-            'diagnostico_id' => $this->diagnostico->id,
+            'flujo_id' => $this->flujo_id,
             'entrada_proveedor' => $this->entrada_proveedor,
             'tratamiento' => $this->tratamiento,
             'salida_cliente' => $this->salida_cliente,
-        ]);
-
-        $this->reset(['c_diagnostico_id', 'entrada_proveedor', 'tratamiento', 'salida_cliente']);
-    }
-
-    // Datos
-    public function createDato()
-    {
-
-        Dato::create([
-            'diagnostico_id' => $this->diagnostico->id,
-            'descripcion' => $this->d_descripcion,
+            'sig' => $this->sig,
             'comentario' => $this->comentario,
         ]);
 
-        $this->reset(['d_diagnostico_id', 'd_descripcion', 'comentario']);
+        $this->reset(['entrada_proveedor', 'tratamiento', 'salida_cliente','sig', 'comentario']);
     }
+
+    public function resetCaracteristica()
+    {
+        $this->reset(['flujo_id', 'entrada_proveedor', 'tratamiento', 'salida_cliente', 'sig', 'comentario']);
+    }
+
+    public function updateCaracteristicaShowModal($id)
+    {
+
+        $this->reset(['flujo_id','entrada_proveedor', 'tratamiento', 'salida_cliente', 'sig', 'comentario']);
+        $this->caracteristicaId = $id;
+        $data = Caracteristica::find($this->caracteristicaId);
+        $this->modalCaracteristicaFormVisible = true;
+        $this->flujo_id = $data->flujo_id;
+        $this->entrada_proveedor = $data->entrada_proveedor;
+        $this->tratamiento = $data->tratamiento;
+        $this->salida_cliente = $data->salida_cliente;
+        $this->sig = $data->sig;
+        $this->comentario = $data->comentario;
+        
+    }
+
+    public function updateCaracteristica()
+    {
+        // $this->validate();
+        Caracteristica::where('id', $this->caracteristicaId)
+            ->update([
+                'flujo_id' => $this->flujo_id,
+                'entrada_proveedor' => $this->entrada_proveedor,
+                'tratamiento' => $this->tratamiento,
+                'salida_cliente' => $this->salida_cliente,
+                'sig' => $this->sig,
+                'comentario' => $this->comentario,
+            ]);
+        // $this->reset(['flujo_id','entrada_proveedor', 'tratamiento', 'salida_cliente', 'sig', 'comentario']);
+        $this->modalCaracteristicaFormVisible = false;
+    }
+
+    public function deleteCaracteristicaShowModal($id)
+    {
+        $this->caracteristicaId = $id;
+        $this->modalConfirmDeleteCaracteristica = true;
+    }
+
+    public function deleteCaracteristica()
+    {
+        Caracteristica::find($this->caracteristicaId)->delete();
+        $this->modalConfirmDeleteCaracteristica = false;
+    }
+
+    // end caracteristica
 
     public function render()
     {
         $this->flujos = Flujo::where('diagnostico_id', $this->diagnostico->id)->get();
-        $this->caracteristicas = Caracteristica::where('diagnostico_id', $this->diagnostico->id)->get();
-        $this->datos = Dato::where('diagnostico_id', $this->diagnostico->id)->get();
+        $this->caracteristicas = Caracteristica::get();
         $this->images = Image::where('model','diagnosticos')->where('model_id', $this->diagnostico->id)->get();
         return view('livewire.diagnostico-edit');
     }

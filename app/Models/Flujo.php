@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Caracteristica;
 
 class Flujo extends Model
 {
@@ -13,4 +14,8 @@ class Flujo extends Model
 		"diagnostico_id", 
 		"descripcion", 
     ];
+
+    public function carateristicas(){
+      return $this->hasMany(Caracteristica::class);
+    }
 }
