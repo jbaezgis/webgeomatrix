@@ -92,7 +92,8 @@
                 <div class="md:flex row gap-2 space-y-3 md:space-y-0 mb-2 items-center mt-4">
                     <div class="basis-1/3">
                         <label for="equipo" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Equipo</label>
-                            <select wire:model.debounce.500ms="equipo" id="equipo" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <select wire:model.debounce.500ms="equipo" id="equipo" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
+                            <option selected>Seleccionar</option>
                             <option value="Desktop">Desktop</option>
                             <option value="Laptop">Laptop</option>
                             <option value="Impresora">Impresora</option>
@@ -105,7 +106,7 @@
                     <div class="basis-1/3">
                         <x-jet-label for="marca_modelo" value="{{ __('Marca y Modelo') }}" />
                         <x-jet-input id="marca_modelo" class="block mt-1 w-full" type="text" name="marca_modelo"
-                            wire:model.debounce.500ms="marca_modelo" />
+                            wire:model.debounce.500ms="marca_modelo" required/>
                         @error('marca_modelo')
                             <span class="error">{{ $message }}</span>
                         @enderror
