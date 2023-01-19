@@ -8,6 +8,7 @@ use App\Http\Livewire\Dashboard;
 use App\Http\Livewire\DiagnosticoEdit;
 use App\Http\Livewire\DiagnosticoRecursos;
 use App\Http\Livewire\Diagnosticos;
+use App\Http\Livewire\DiagnosticoView;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -38,5 +39,6 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'),'verified'])
 
     Route::get('/diagnostico/edit/{id}', DiagnosticoEdit::class)->name('diagnostico-edit');
     Route::get('/diagnostico/edit/{id}/recursos', DiagnosticoRecursos::class)->name('diagnostico-recursos');
+    Route::get('/diagnostico/view/{id}', DiagnosticoView::class)->name('diagnostico-view');
 
 });

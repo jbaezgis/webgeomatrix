@@ -3,7 +3,6 @@
 namespace App\Http\Livewire;
 
 use App\Models\Caracteristica;
-use App\Models\Dato;
 use App\Models\Diagnostico;
 use App\Models\Flujo;
 use App\Models\Image;
