@@ -247,7 +247,7 @@ class DiagnosticoEdit extends Component
                 'sig' => $this->sig,
                 'comentario' => $this->comentario,
             ]);
-        // $this->reset(['flujo_id','entrada_proveedor', 'tratamiento', 'salida_cliente', 'sig', 'comentario']);
+        $this->reset(['flujo_id','entrada_proveedor', 'tratamiento', 'salida_cliente', 'sig', 'comentario']);
         $this->modalCaracteristicaFormVisible = false;
     }
 

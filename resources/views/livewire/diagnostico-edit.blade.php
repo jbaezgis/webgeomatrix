@@ -1,3 +1,4 @@
+@section('title', $diagnostico->oficina)
 <div>
     <x-slot name="header">
         <div class="flex gap-2 items-center">
@@ -185,9 +186,9 @@
                         <div>
                             {{-- caracteristia de los flujos --}}
                             <div class="p-2">
-                                <div class="text-gray-900 text-sm text-center">
+                                {{-- <div class="text-gray-900 text-sm text-center">
                                     PRINCIPALES CARACTERÍSTICAS
-                                </div>
+                                </div> --}}
 
                                 <div class="relative overflow-x-auto">
                                     
