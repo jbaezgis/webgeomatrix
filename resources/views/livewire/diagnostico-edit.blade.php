@@ -383,7 +383,10 @@
                     <span class="error">{{ $message }}</span>
                 @enderror
             </div>
-
+            <div class="border-t mt-4 uppercase text-gray-500 text-xs pt-4">
+                Fomulario Caracteristica del Flujo
+            </div>
+            {{-- form caracteristicas --}}
             <div class="md:flex row gap-2 space-y-3 md:space-y-0 mb-2 mt-4 items-end">
                 <input wire:model="flujo_id" type="integer" value="{{ $flujo_id }}" hidden>
                 <div class="basis-1/2">
@@ -404,6 +407,7 @@
                     </div>
                 </div>
             </div>
+            {{-- end form caracteristicas --}}
 
             {{-- caracteristia de los flujos --}}
             <div class="">
@@ -527,7 +531,7 @@
 
         <x-slot name="content">
             <div class="mt-4">
-                <x-jet-label for="entrada_proveedor" value="{{ __('entrada_proveedor') }}" />
+                <x-jet-label for="entrada_proveedor" value="{{ __('Entrada / Proveedor') }}" />
                 <x-jet-input id="entrada_proveedor" class="block mt-1 w-full" type="text" name="entrada_proveedor"
                     wire:model.debounce.500ms="entrada_proveedor" />
                 @error('entrada_proveedor')
@@ -536,7 +540,7 @@
             </div>
 
             <div class="mt-4">
-                <x-jet-label for="tratamiento" value="{{ __('tratamiento') }}" />
+                <x-jet-label for="tratamiento" value="{{ __('Tratamiento') }}" />
                 <x-jet-input id="tratamiento" class="block mt-1 w-full" type="text" name="tratamiento"
                     wire:model.debounce.500ms="tratamiento" />
                 @error('tratamiento')
@@ -545,7 +549,7 @@
             </div>
 
             <div class="mt-4">
-                <x-jet-label for="salida_cliente" value="{{ __('salida_cliente') }}" />
+                <x-jet-label for="salida_cliente" value="{{ __('Salida / Cliente') }}" />
                 <x-jet-input id="salida_cliente" class="block mt-1 w-full" type="text" name="salida_cliente"
                     wire:model.debounce.500ms="salida_cliente" />
                 @error('salida_cliente')
@@ -562,7 +566,7 @@
             </div>
 
             <div class="">
-                <x-jet-label for="comentario" value="{{ __('comentario') }}" />
+                <x-jet-label for="comentario" value="{{ __('Comentario') }}" />
                 <x-jet-input id="comentario" class="block mt-1 w-full" type="text" name="comentario"
                     wire:model.debounce.500ms="comentario" />
                 @error('comentario')
