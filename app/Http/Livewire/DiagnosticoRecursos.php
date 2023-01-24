@@ -14,7 +14,7 @@ class DiagnosticoRecursos extends Component
 {
     use WithFileUploads;
     public $diagnostico, $diagnosticoId;
-    public $images, $recursos, $softwares;
+    public $image, $images, $recursos, $softwares;
     public $modalConfirmDeleteRecurso = false;
     public $modalRecursoFormVisible = false;
     public $modalConfirmDeleteSoftware = false;
@@ -30,10 +30,54 @@ class DiagnosticoRecursos extends Component
     public $imageId, $url, $model, $model_id;
     public $modalConfirmDeleteImage = false;
 
+    protected $rules = [
+        'url' => 'required|image|max:2048',
+    ];
+
     public function mount($id)
     {
         $this->diagnostico = Diagnostico::find($id);
     }
+
+    // Images
+    public function imageData()
+    {
+        return [
+            'model' => 'recursos',
+            'model_id' => $this->recursoId,
+            'url' => $this->url,
+        ];
+    }
+
+    public function createImage()
+    {
+        $this->validate();
+
+        $image = $this->url->store('diagnosticos/'.$this->diagnostico->id.'/recursos');
+        
+        Image::create([
+            'model' => 'recursos',
+            'model_id' => $this->recursoId,
+            'url' => $image,
+        ]);
+
+        $this->reset(['model', 'model_id', 'url']);
+    }
+
+    public function deleteImageShowModal($id)
+    {
+        $this->imageId = $id;
+        $this->modalConfirmDeleteImage = true;
+    }
+
+    public function deleteImage()
+    {
+        $image = Image::find($this->imageId);
+        Image::destroy($this->imageId);
+        Storage::delete($image->url);
+        $this->modalConfirmDeleteImage = false;
+    }
+    // end images
 
     // Recursos
     public function createRecurso()
@@ -186,7 +230,10 @@ class DiagnosticoRecursos extends Component
     {
         $this->recursos = Recurso::where('diagnostico_id', $this->diagnostico->id)->get();
         $this->softwares = Software::get();
-        $this->images = Image::get();
+        if($this->recursoId)
+        {
+            $this->images = Image::where('model','recursos')->where('model_id', $this->recursoId)->get();
+        }
         // $this->recurso = Recurso::first();
         return view('livewire.diagnostico-recursos');
     }

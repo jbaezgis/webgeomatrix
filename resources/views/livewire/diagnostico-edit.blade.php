@@ -292,8 +292,8 @@
                 </div>
 
             </div>
-            {{-- flujos foreach Mobile --}}
             <div class="border-b sm:hidden">
+                {{-- flujos foreach Mobile --}}
                 @foreach ($flujos as $item)
                    <div class="flex bg-white p-2 shadow-lg mb-2 items-center border-l-2 border-l-blue-500 mt-4">
                        <div class="font-medium">
