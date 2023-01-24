@@ -1,7 +1,7 @@
 @section('title', $diagnostico->oficina)
 <div>
     <x-slot name="header">
-        <div class="flex gap-2 items-center">
+        <div class="lg:flex gap-2 items-center">
             <div class="">
                 <a href="{{ url('admin/diagnosticos') }}" class="">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -11,9 +11,9 @@
             </div>
 
 
-            <div class="flex justify-between flex-1 w-64">
+            <div class="lg:flex justify-between flex-1 lg:w-64 text-center lg:text-left">
                 
-                <div class="flex gap-2 items-center">
+                <div class="lg:flex gap-2 items-center">
                     <div><h1 class="font-semibold text-xl text-gray-800 leading-tight">{{ $diagnostico->oficina }}</h1></div>
                     <div class="text-gray-600">(Responsable: {{ $diagnostico->responsable }})</div>
                 </div>
@@ -66,7 +66,7 @@
                 </div>
 
                 <div>
-                    <div class="max-w-md mb-2">
+                    <div class="lg:max-w-md mb-2">
                         @if ($url)
                             <img src="{{ $url->temporaryUrl() }}" alt="" class="">
                         @endif
@@ -142,7 +142,8 @@
                     DESCRIPCIÓN GENERAL DE LA INFORMACIÓN
                 </div>
 
-                <div class="md:flex row gap-2 space-y-3 md:space-y-0 mb-2 items-center mt-4">
+                {{-- Add flujo PC --}}
+                <div class="md:flex row gap-2 space-y-3 md:space-y-0 mb-2 items-center mt-4 hidden sm:block">
                     <div class="w-full">
                         {{-- <label for="oficina" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Oficina</label> --}}
                         <input wire:model="f_descripcion" type="text" name="f_descripcion" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
@@ -154,121 +155,177 @@
                         </div>
                     </div>
                 </div>
+                {{-- en add flujo PC --}}
 
-                @foreach ($flujos as $item)
-                    <div class="border mb-4">
-                        <div class="flex justify-between border-b bg-gray-50">
-                            <div class="p-2 font-medium">
-                                {{-- @if($editFlujo)
-                                    <input wire:model="editDescription" type="text" name="entrada_proveedor" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full px-2 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
-                                @else
+                {{-- Add flujo mobile --}}
+                <div class="flex row gap-2 mb-2 items-center mt-4 sm:hidden">
+                    <div class="w-80">
+                        <label for="small-input" class="block mb-2 text-sm font-medium text-gray-500 uppercase">Flujo</label>
+                        <input wire:model="f_descripcion" type="text" id="small-input" class="block w-full p-2 text-gray-900 border border-gray-300 bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                    </div>
+                   
+                    <div class="pt-7">
+                        <button wire:click="createFlujo" type="button" id="createFlujo" class="text-white bg-gray-700 hover:bg-gray-800 focus:ring-4 focus:ring-gray-300 font-medium text-sm px-3 py-2.5 dark:bg-gray-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                {{-- end add flujo mobile --}}
+
+                {{-- flujos foreach PC --}}
+                <div class="hidden sm:block">
+                    @foreach ($flujos as $item)
+                        <div class="border mb-4">
+                            <div class="flex justify-between border-b bg-gray-50">
+                                <div class="p-2 font-medium">
+                                    {{-- @if($editFlujo)
+                                        <input wire:model="editDescription" type="text" name="entrada_proveedor" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full px-2 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
+                                    @else
+                                        {{ $item->descripcion }}
+                                    @endif --}}
                                     {{ $item->descripcion }}
-                                @endif --}}
-                                {{ $item->descripcion }}
-                            </div>
-                            <div class="basis-1/4 px-4 py-2 text-end">
-                                <button class="text-blue-500 inline-flex border border-blue-500 rounded px-2 py-0.1 hover:bg-blue-50 focus:ring-2 focus:ring-blue-100" wire:click="updateFlujoShowModal({{ $item->id }})"> 
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
-                                    </svg> 
-                                      
-                                    Editar
-                                </button>
-                               
-                                <button class="text-red-500 inline-flex border border-red-500 rounded px-2 py-0.1 hover:bg-red-50" wire:click="deleteFlujoShowModal({{ $item->id }})">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                                    </svg>
-                                    Eliminar
-                                </button>
-                            </div>
-                        </div>
-                        <div>
-                            {{-- caracteristia de los flujos --}}
-                            <div class="p-2">
-                                {{-- <div class="text-gray-900 text-sm text-center">
-                                    PRINCIPALES CARACTERÍSTICAS
-                                </div> --}}
-
-                                <div class="relative overflow-x-auto">
-                                    
-                                    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                                        <thead class="text-xs text-gray-700 uppercase bg-gray-50">
-                                            <tr class="border">
-                                                <th scope="col" class="px-3 py-1">
-                                                    Entrada / Proveedor
-                                                </th>
-                                                <th scope="col" class="px-3 py-1">
-                                                    Tratamiento
-                                                </th>
-                                                <th scope="col" class="px-3 py-1">
-                                                    Salida / Cliente
-                                                </th>
-                                                <th scope="col" class="px-3 py-1">
-                                                    SIG
-                                                </th>
-                                                <th scope="col" class="px-3 py-1">
-                                                    Comentario
-                                                </th>
-                                                <th scope="col" class="px-3 py-1">
-                                                    
-                                                </th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            @foreach ($caracteristicas->where('flujo_id', $item->id) as $item)
-                                                <tr class="bg-white border dark:border-gray-700 hover:bg-gray-50">
-                                                
-                                                    <th scope="row" class="px-2 py-1 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                                        {{ $item->entrada_proveedor }}
-                                                    </th>
-                                                    <th scope="row" class="px-2 py-1 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                                        {{ $item->tratamiento }}
-                                                    </th>
-                                                    <th scope="row" class="px-2 py-1 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                                        {{ $item->salida_cliente }}
-                                                    </th>
-                                                    <th scope="row" class="px-2 py-1 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                                        @if ($item->sig == true)
-                                                            Si
-                                                        @else
-                                                        @endif
-                                                    </th>
-                                                    <th scope="row" class="px-2 py-1 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                                        {{ $item->comentario }}
-                                                    </th>
-                                                
-                                                    <td class="px-2 py-1">
-                                                        <div class="flex gap-2 items-center">
-                                                        
-                                                            <button class="text-blue-500" wire:click="updateCaracteristicaShowModal({{ $item->id }})">
-                                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
-                                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
-                                                                </svg>   
-                                                            </button>
-                                                        
-                                                            <button class="text-red-500" wire:click="deleteCaracteristicaShowModal({{ $item->id }})">
-                                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                                                                </svg>
-                                                            </button>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                            @endforeach
-                                            
-                                        </tbody>
-                                    </table>
                                 </div>
-                            </div> 
-                            {{-- end caracteristicas de los flujos --}}
+                                <div class="basis-1/4 px-4 py-2 text-end">
+                                    <button class="text-blue-500 inline-flex border border-blue-500 rounded px-2 py-0.1 hover:bg-blue-50 focus:ring-2 focus:ring-blue-100" wire:click="updateFlujoShowModal({{ $item->id }})"> 
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
+                                        </svg> 
+                                          
+                                        Editar
+                                    </button>
+                                   
+                                    <button class="text-red-500 inline-flex border border-red-500 rounded px-2 py-0.1 hover:bg-red-50" wire:click="deleteFlujoShowModal({{ $item->id }})">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                        </svg>
+                                        Eliminar
+                                    </button>
+                                </div>
+                            </div>
+                            <div>
+                                {{-- caracteristia de los flujos --}}
+                                <div class="p-2">
+                                    {{-- <div class="text-gray-900 text-sm text-center">
+                                        PRINCIPALES CARACTERÍSTICAS
+                                    </div> --}}
+    
+                                    <div class="relative overflow-x-auto">
+                                        
+                                        <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                                            <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+                                                <tr class="border">
+                                                    <th scope="col" class="px-3 py-1">
+                                                        Entrada / Proveedor
+                                                    </th>
+                                                    <th scope="col" class="px-3 py-1">
+                                                        Tratamiento
+                                                    </th>
+                                                    <th scope="col" class="px-3 py-1">
+                                                        Salida / Cliente
+                                                    </th>
+                                                    <th scope="col" class="px-3 py-1">
+                                                        SIG
+                                                    </th>
+                                                    <th scope="col" class="px-3 py-1">
+                                                        Comentario
+                                                    </th>
+                                                    <th scope="col" class="px-3 py-1">
+                                                        
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach ($caracteristicas->where('flujo_id', $item->id) as $item)
+                                                    <tr class="bg-white border dark:border-gray-700 hover:bg-gray-50">
+                                                    
+                                                        <th scope="row" class="px-2 py-1 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                            {{ $item->entrada_proveedor }}
+                                                        </th>
+                                                        <th scope="row" class="px-2 py-1 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                            {{ $item->tratamiento }}
+                                                        </th>
+                                                        <th scope="row" class="px-2 py-1 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                            {{ $item->salida_cliente }}
+                                                        </th>
+                                                        <th scope="row" class="px-2 py-1 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                            @if ($item->sig == true)
+                                                                Si
+                                                            @else
+                                                            @endif
+                                                        </th>
+                                                        <th scope="row" class="px-2 py-1 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                            {{ $item->comentario }}
+                                                        </th>
+                                                    
+                                                        <td class="px-2 py-1">
+                                                            <div class="flex gap-2 items-center">
+                                                            
+                                                                <button class="text-blue-500" wire:click="updateCaracteristicaShowModal({{ $item->id }})">
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                                                        <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
+                                                                    </svg>   
+                                                                </button>
+                                                            
+                                                                <button class="text-red-500" wire:click="deleteCaracteristicaShowModal({{ $item->id }})">
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                                                    </svg>
+                                                                </button>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                @endforeach
+                                                
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div> 
+                                {{-- end caracteristicas de los flujos --}}
+                                
+                            </div>
                             
                         </div>
-                        
-                    </div>
+                    @endforeach
+                    {{-- end flzujos foreach PC --}}
+                </div>
+
+            </div>
+            {{-- flujos foreach Mobile --}}
+            <div class="border-b sm:hidden">
+                @foreach ($flujos as $item)
+                   <div class="flex bg-white p-2 shadow-lg mb-2 items-center border-l-2 border-l-blue-500 mt-4">
+                       <div class="font-medium w-80">
+                           <div class="w-full truncate">
+                               {{ $item->descripcion }}
+                           </div>
+                           <div class="text-sm text-gray-500">
+                               @if ($caracteristicas->where('flujo_id', $item->id)->count() <= 1)
+                                   {{ $caracteristicas->where('flujo_id', $item->id)->count() }} caracteristica
+                               @elseif ($caracteristicas->where('flujo_id', $item->id)->count() >= 1)
+                                   {{ $caracteristicas->where('flujo_id', $item->id)->count() }} caracteristicas
+                               @endif
+                           </div>
+                       </div>
+                       <div class="basis-1/4 text-end">
+                           <button class="text-blue-500 inline-flex border border-blue-500 rounded px-2 py-0.1 hover:bg-blue-50 focus:ring-2 focus:ring-blue-100" wire:click="updateFlujoShowModal({{ $item->id }})"> 
+                               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                   <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
+                               </svg> 
+                           </button>
+                          
+                           <button class="text-red-500 inline-flex border border-red-500 rounded px-2 py-0.1 hover:bg-red-50" wire:click="deleteFlujoShowModal({{ $item->id }})">
+                               <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                   <path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                               </svg>
+                           </button>
+                       </div>
+                   </div>
                 @endforeach
-             </div>
-             {{-- end principales flujos --}}
+               {{-- end flujos foreach Mobile --}}
+            </div>
+
 
             {{-- Observaciones generales --}}
             <div class="mb-2 mt-6">
