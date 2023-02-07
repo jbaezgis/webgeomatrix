@@ -21,6 +21,7 @@ class Diagnosticos extends Component
     public $modalInactivar = false;
     public $modelId;
     public $objetivos_actividades, $estructura_organizativa, $observaciones_generales, $observaciones_medios;
+    public $diagnosticos2;
 
     public function modelData()
     {
@@ -53,6 +54,7 @@ class Diagnosticos extends Component
 
     public function render()
     {
+        $this->diagnosticos2 = Diagnostico::pluck('oficina','id');
         return view('livewire.diagnosticos', [
             'diagnosticos' => Diagnostico::where('id', 'LIKE', "%{$this->search}%")->orWhere('oficina', 'LIKE', "%{$this->search}%")->orWhere('responsable', 'LIKE', "%{$this->search}%")->latest()->paginate(10),
         ]);

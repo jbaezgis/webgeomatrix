@@ -1,7 +1,5 @@
 @section('title', $diagnostico->oficina)
 <div>
-    
-    
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 px-2 py-2 bg-white">
         <div class="lg:flex gap-2 items-center">
             <div class="">

@@ -8,7 +8,7 @@
     </div>
 
     <div class="max-w-7xl mx-auto pt-10 space-y-6 mb-2">
-        <p>Firma experta en el diagnóstico, diseño, preparación y evaluación de proyectos de recuperación, manejo, protección y aprovechamiento sostenible de recursos naturales renovables y no reno.  En los sectores de riego, planeamiento físico, minería, líneas de transmisión eléctrica, generación hidroeléctrica y ecoturismo, hemos trabajado en todas las etapas de proyectos, en los aspectos ambiéntales, socioeconómicos, organizacionales e institucionales.</p> 
+        <p>Firma experta en el diagnóstico, diseño, preparación y evaluación de proyectos de recuperación, manejo, protección y aprovechamiento sostenible de recursos naturales renovables y no renovables.  En los sectores de riego, planeamiento físico, minería, líneas de transmisión eléctrica, generación hidroeléctrica y ecoturismo, hemos trabajado en todas las etapas de proyectos, en los aspectos ambientales, socioeconómicos, organizacionales e institucionales.</p> 
 
         <p>GEOMATRIX ha desarrollado ventajas competitivas en la ejecución de proyectos de desarrollo sostenible, gestión de procesos de articulación minería - comunidades.  Firma especializada en geomática con experiencia comprobada en el diseño e implementación de soluciones funcionales, ágiles, automatizadas y adaptables.</p> 
         

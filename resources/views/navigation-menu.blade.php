@@ -38,6 +38,9 @@
                         <x-jet-nav-link href="{{ url('admin/diagnosticos') }}" :active="request()->is('admin/diagnosticos')">
                             {{ __('Diagnósticos') }}
                         </x-jet-nav-link>
+                        <x-jet-nav-link href="{{ url('admin/quejas') }}" :active="request()->is('admin/quejas')">
+                            {{ __('Quejas') }}
+                        </x-jet-nav-link>
                     @endauth
                 </div>
             </div>
@@ -104,7 +107,7 @@
                 @auth
                 <div class="">
                     {{-- Admin dropdown menu --}}
-                    {{-- <x-jet-dropdown align="right" width="60">
+                    <x-jet-dropdown align="right" width="60">
                         <x-slot name="trigger">
                             <span class="inline-flex rounded-md">
                                 <button type="button" class="inline-flex items-center px-3 py-2 border border-transparent leading-4 rounded-md text-gray-500 bg-white hover:bg-gray-50 hover:text-gray-700 focus:outline-none focus:bg-gray-50 active:bg-gray-50 transition">
@@ -120,22 +123,35 @@
                         <x-slot name="content">
                             <div class="w-60">
                                 <x-jet-dropdown-link href="{{ url('products') }}" class="{{ request()->routeIs('products*') ? 'text-gray-700 bg-gray-200' : '' }}">
-                                    {{ __('Services') }}
+                                    {{ __('Text') }}
                                 </x-jet-dropdown-link>
 
                                 
                                 <div class="border-t border-gray-100"></div>
+                                {{-- Ubicaciones --}}
                                 <div class="block px-4 py-2 text-xs text-gray-400">
-                                    {{ __('Locations') }}
+                                    {{ __('Ubicaciones') }}
                                 </div>
                                 <x-jet-dropdown-link href="{{ url('admin/provinces') }}" class="{{ request()->routeIs('admin.provinces') ? 'text-gray-700 bg-gray-200' : '' }}">
-                                    {{ __('Provinces') }}
+                                    {{ __('Provincias') }}
                                 </x-jet-dropdown-link>
                                 <x-jet-dropdown-link href="{{ url('admin/municipalities') }}" class="{{ request()->routeIs('admin.municipalities') ? 'text-gray-700 bg-gray-200' : '' }}">
-                                    {{ __('Municipalities') }}
+                                    {{ __('Municipios') }}
                                 </x-jet-dropdown-link>
                                 <x-jet-dropdown-link href="{{ url('admin/places') }}" class="{{ request()->routeIs('admin.places*') ? 'text-gray-700 bg-gray-200' : '' }}">
-                                    {{ __('Places') }}
+                                    {{ __('Comunidades') }}
+                                </x-jet-dropdown-link>
+
+                                <div class="border-t border-gray-100"></div>
+                                {{-- Mantenimientos --}}
+                                <div class="block px-4 py-2 text-xs text-gray-400">
+                                    {{ __('Mantenimientos') }}
+                                </div>
+                                <x-jet-dropdown-link href="{{ url('admin/provinces') }}" class="{{ request()->routeIs('admin.provinces') ? 'text-gray-700 bg-gray-200' : '' }}">
+                                    {{ __('Estados') }}
+                                </x-jet-dropdown-link>
+                                <x-jet-dropdown-link href="{{ url('admin/municipalities') }}" class="{{ request()->routeIs('admin.municipalities') ? 'text-gray-700 bg-gray-200' : '' }}">
+                                    {{ __('Sexo') }}
                                 </x-jet-dropdown-link>
 
                                 <div class="border-t border-gray-100"></div>
@@ -143,24 +159,24 @@
                                 <div class="block px-4 py-2 text-xs text-gray-400">
                                     {{ __('System') }}
                                 </div>
-                                <x-jet-dropdown-link href="{{ url('users') }}" class="{{ request()->routeIs('users*') ? 'text-gray-700 bg-gray-200' : '' }}">
+                                <x-jet-dropdown-link href="#" class="{{ request()->routeIs('users*') ? 'text-gray-700 bg-gray-200' : '' }}">
                                     {{ __('Users') }}
                                 </x-jet-dropdown-link>
-                                <x-jet-dropdown-link href="">
+                                <x-jet-dropdown-link href="#">
                                     {{ __('Roles and Permisions') }}
                                 </x-jet-dropdown-link>
-                                <x-jet-dropdown-link href="">
+                                <x-jet-dropdown-link href="#">
                                     {{ __('Settings') }}
                                 </x-jet-dropdown-link>
-                                <x-jet-dropdown-link href="">
+                                <x-jet-dropdown-link href="#">
                                     {{ __('Bulk Actions') }}
                                 </x-jet-dropdown-link>
-                                <x-jet-dropdown-link href="{{ url('logs') }}" class="{{ request()->routeIs('logs') ? 'text-gray-700 bg-gray-200' : '' }}">
+                                <x-jet-dropdown-link href="#" class="{{ request()->routeIs('logs') ? 'text-gray-700 bg-gray-200' : '' }}">
                                     {{ __('Logs') }}
                                 </x-jet-dropdown-link>
                             </div>
                         </x-slot>
-                    </x-jet-dropdown> --}}
+                    </x-jet-dropdown>
 
                 </div>
                     <div class="ml-3 relative">
@@ -240,6 +256,9 @@
                 </x-jet-responsive-nav-link>
                 <x-jet-responsive-nav-link href="{{ url('admin/diagnosticos') }}" :active="request()->is('admin/diagnosticos')">
                     {{ __('Diagnósticos') }}
+                </x-jet-responsive-nav-link>
+                <x-jet-responsive-nav-link href="{{ url('admin/quejas') }}" :active="request()->is('admin/Quejas')">
+                    {{ __('Quejas') }}
                 </x-jet-responsive-nav-link>
             @endauth
             @guest

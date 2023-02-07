@@ -1,3 +1,4 @@
+@section('title', "Diagnósticos")
 <div>
     <div class="max-w-7xl mx-auto px-2 py-6">
         <div class="flex justify-between pb-6">
@@ -7,7 +8,9 @@
                 <a href="{{ url('admin/diagnostico/create') }}" class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 focus:outline-none dark:focus:ring-green-800">Agregar</a>
             </div>
         </div>
-
+        {{-- <div>
+            <x-select-search :data="$diagnosticos2" wire:model="search" placeholder="Select Test"/>
+        </div> --}}
         {{-- Table Diagnoticos PC --}}
         <div class="relative overflow-x-auto shadow-md sm:rounded-lg hidden md:block">
             <div class="pb-4 bg-white dark:bg-gray-900 p-4">
