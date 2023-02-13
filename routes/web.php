@@ -9,6 +9,7 @@ use App\Http\Livewire\DiagnosticoEdit;
 use App\Http\Livewire\DiagnosticoRecursos;
 use App\Http\Livewire\Diagnosticos;
 use App\Http\Livewire\DiagnosticoView;
+use App\Http\Livewire\Gts;
 use App\Http\Livewire\PrivacyPolicy;
 use App\Http\Livewire\Quejas\Quejas;
 use App\Http\Livewire\Support;
@@ -30,6 +31,7 @@ Route::get('about', About::class)->name('about');
 Route::get('contact-us', ContactUs::class)->name('contact-us');
 Route::get('privacy-policy', PrivacyPolicy::class)->name('privacy-policy');
 Route::get('support', Support::class)->name('support');
+Route::get('gts', Gts::class)->name('gts');
 
 // Administration routes
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'),'verified'])->prefix('admin')->name('admin.')->group(function () {

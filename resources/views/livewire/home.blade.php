@@ -23,7 +23,7 @@
             <h3 class="text-lg font-semibold text-gray-900 py-2">Rastreo Satelital</h3>
             <p>Producto aplicado a control de flotillas y monitoreo de brigadas de campo.</p>
             <div class="pt-4">
-                <a href="#" class="text-white bg-green-500 hover:bg-green-600 focus:ring-4 focus:ring-green-200 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2">Más información</a>
+                <a href="{{ route('gts') }}" class="text-white bg-green-500 hover:bg-green-600 focus:ring-4 focus:ring-green-200 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2">Más información</a>
             </div>
         </div>
 

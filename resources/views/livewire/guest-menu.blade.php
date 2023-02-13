@@ -18,6 +18,9 @@
                     <x-jet-nav-link href="{{ route('about') }}" :active="request()->routeIs('about')">
                         {{ __('Acerca de la Empresa') }}
                     </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('gts') }}" :active="request()->routeIs('gts')">
+                        {{ __('GTS') }}
+                    </x-jet-nav-link>
                     <x-jet-nav-link href="{{ route('contact-us') }}" :active="request()->routeIs('contact-us')">
                         {{ __('Contáctanos') }}
                     </x-jet-nav-link>
@@ -165,6 +168,9 @@
             </x-jet-responsive-nav-link>
             <x-jet-responsive-nav-link href="{{ route('about') }}" :active="request()->routeIs('about')">
                 {{ __('Acerca de la Empresa') }}
+            </x-jet-responsive-nav-link>
+            <x-jet-responsive-nav-link href="{{ route('gts') }}" :active="request()->routeIs('gts')">
+                {{ __('GTS') }}
             </x-jet-responsive-nav-link>
             <x-jet-responsive-nav-link href="{{ route('contact-us') }}" :active="request()->routeIs('contact-us')">
                 {{ __('Contáctanos') }}

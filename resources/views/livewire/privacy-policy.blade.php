@@ -16,6 +16,5 @@
             (por ejemplo, Firefox o Internet Explorer) y cómo se convirtió en cliente potencial Geomatrix. 
             Utilizamos dicha información únicamente para ayudarnos a mejorar nuestras políticas de marketing, y los datos personales del 
             usuario de Internet no se incluyen en la captura de datos.</p> 
-        
     </div>
 </div>

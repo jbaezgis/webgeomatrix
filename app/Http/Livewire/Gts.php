@@ -8,6 +8,6 @@ class Gts extends Component
 {
     public function render()
     {
-        return view('livewire.gts');
+        return view('livewire.gts')->layout('layouts.guest');
     }
 }
