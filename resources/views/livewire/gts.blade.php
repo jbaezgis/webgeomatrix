@@ -56,7 +56,7 @@
                     Geomatrix GTS proporciona notificaciones web instantáneas junto con soporte para correo electrónico y SMS.
                 </h3>
                 <div class="text-lg text-gray-700 py-4 ">
-                    <ul class="list-disc space-y-4">
+                    <ul class="list-disc space-y-4 px-4">
                         <li>Notificación instantánea de eventos por velocidad excedida, traspaso de fronteras e incumplimiento de rutas.</li>
                         <li>Detección automática de llegadas, salidas y paradas en diferentes puntos de un recorrido.</li>
                         <li>Aviso por paradas prolongadas.</li>
@@ -80,7 +80,7 @@
                     Geomatrix GTS admite reportes sencillos de historial de ubicaciones, viajes, gráficos y resúmenes con almacenamiento de hasta 12 meses.
                 </h3>
                 <div class="text-lg text-gray-700 py-4">
-                    <ul class="list-disc space-y-4">
+                    <ul class="list-disc space-y-4 px-4">
                         <li>Reporte de consumo de combustible por kilómetros recorridos.</li>
                         <li>Control de mantenimientos automáticos por horas de operación o Kms recorridos.</li>
                         <li>Reproducción de recorridos de manera fácil.</li>
@@ -93,8 +93,8 @@
     {{-- otras funciones --}}
     <div class="bg-white">
         <div class="max-w-4xl mx-auto px-2 py-12">
-            <div class="md:grid md:grid-cols-2 gap-4 py-6 space-y-6">
-                <div>
+            <div class="md:grid md:grid-cols-2 gap-4">
+                <div class="py-6">
                     <div class="flex justify-center">
                         <img src="{{ asset('images/icons/database.png') }}" alt="">
                     </div>
@@ -104,7 +104,7 @@
                     </p>
                 </div>
                 
-                <div>
+                <div class="py-6">
                     <div class="flex justify-center">
                         <img class="" src="{{ asset('images/icons/seguridad.png') }}" alt="">
                     </div>
