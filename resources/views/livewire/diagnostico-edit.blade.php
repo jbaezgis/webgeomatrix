@@ -93,7 +93,8 @@
                         <div class="w-full max-w-7xl mx-auto">
                             <div class="relative">
                                 <div>
-                                    <img class="" src="{{ Storage::url($item->url) }}" alt="">
+                                    {{-- <img class="" src="{{ Storage::url($item->url) }}" alt=""> --}}
+                                    <img class="" src="{{ asset('storage/'.$item->url) }}" alt="">
                                 </div>
                                 <div class="absolute bottom-1 flex gap-2 px-2">
                                     <div> 

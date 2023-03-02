@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Software;
+use App\Models\Diagnostico;
 
 class Recurso extends Model
 {
@@ -19,6 +20,10 @@ class Recurso extends Model
 		"acceso_internet", 
 		"personal_asignado", 
     ];
+
+	public function diagnostico(){
+        return $this->belongsTo(Diagnostico::class);
+	}
     
     public function softwares(){
         return $this->hasMany(Software::class);

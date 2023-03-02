@@ -180,6 +180,10 @@
                 <x-jet-responsive-nav-link href="{{ route('login') }}" :active="request()->routeIs('login')">
                     {{ __('Iniciar Sección') }}
                 </x-jet-responsive-nav-link>
+            @else
+                <x-jet-responsive-nav-link href="{{ url('admin') }}" :active="request()->routeIs('admin')">
+                    {{ __('Admin') }}
+                </x-jet-responsive-nav-link>
             @endguest
 
         </div>

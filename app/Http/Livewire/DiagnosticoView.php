@@ -28,6 +28,6 @@ class DiagnosticoView extends Component
         $this->images = Image::where('model','diagnosticos')->where('model_id', $this->diagnostico->id)->get();
         $this->recursos = Recurso::where('diagnostico_id', $this->diagnostico->id)->get();
         $this->softwares = Software::get();
-        return view('livewire.diagnostico-view');
+        return view('livewire.diagnostico-view')->layout('layouts.print');
     }
 }

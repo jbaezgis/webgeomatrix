@@ -10,8 +10,10 @@ use App\Http\Livewire\DiagnosticoRecursos;
 use App\Http\Livewire\Diagnosticos;
 use App\Http\Livewire\DiagnosticoView;
 use App\Http\Livewire\Gts;
+use App\Http\Livewire\HardwareReport;
 use App\Http\Livewire\PrivacyPolicy;
 use App\Http\Livewire\Quejas\Quejas;
+use App\Http\Livewire\SoftwaresReport;
 use App\Http\Livewire\Support;
 use Illuminate\Support\Facades\Route;
 
@@ -47,6 +49,11 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'),'verified'])
     Route::get('/diagnostico/edit/{id}', DiagnosticoEdit::class)->name('diagnostico-edit');
     Route::get('/diagnostico/edit/{id}/recursos', DiagnosticoRecursos::class)->name('diagnostico-recursos');
     Route::get('/diagnostico/view/{id}', DiagnosticoView::class)->name('diagnostico-view');
+
+    // Reportes
+    Route::get('/diagnostico/hardware-report', HardwareReport::class)->name('hardware-report');
+    Route::get('/diagnostico/softwares-report', SoftwaresReport::class)->name('softwares-report');
+
 
     // Quejas
     Route::get('quejas', Quejas::class)->name('quejas');
