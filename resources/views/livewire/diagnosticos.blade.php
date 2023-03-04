@@ -86,9 +86,11 @@
                 </tbody>
             </table>
         </div>
+        {{-- {{ $diagnosticos->links() }} --}}
         {{-- End diagnosticos PC --}}
 
         {{-- Diagnoticos Mobile --}}
+        
         <div class="sm:hidden">
             <div>   
                 <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Buscar</label>
@@ -163,7 +165,13 @@
                         </div>
                     </div>
                 @endforeach
+                
             </div>
+            {{-- pagination --}}
+            
+        </div>
+        <div class="py-4">
+            {{ $diagnosticos->links() }}
         </div>
     </div>
 
