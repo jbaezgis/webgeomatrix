@@ -62,13 +62,13 @@
             </div>
 
             <div>
+                
                 <ol class="list-decimal pl-4 space-y-4">
                     @foreach ($flujos as $item)
-                    <li class="font-medium">{{ $item->descripcion }}</li>
-                    <ul class="list-disc list-outside pl-4">
-                        <div class="relative overflow-x-auto">
-                                        
-                            <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                    <div>
+                        <div class="text-xl py-2 font-bold">{{ $item->descripcion }}</div>
+                        <div>
+                            <table class="w-full text-sm text-left text-gray-500 table-fixed">
                                 <thead class="text-xs text-gray-700 uppercase bg-gray-50">
                                     <tr class="border">
                                         <th scope="col" class="px-3 py-1">
@@ -92,22 +92,22 @@
                                     @foreach ($caracteristicas->where('flujo_id', $item->id) as $item)
                                         <tr class="bg-white border dark:border-gray-700 hover:bg-gray-50">
                                         
-                                            <th scope="row" class="px-2 py-1 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                            <th scope="row" class="px-2 py-1 font-medium text-gray-900 dark:text-white">
                                                 {{ $item->entrada_proveedor }}
                                             </th>
-                                            <th scope="row" class="px-2 py-1 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                            <th scope="row" class="px-2 py-1 font-medium text-gray-900 dark:text-white">
                                                 {{ $item->tratamiento }}
                                             </th>
-                                            <th scope="row" class="px-2 py-1 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                            <th scope="row" class="px-2 py-1 font-medium text-gray-900 dark:text-white">
                                                 {{ $item->salida_cliente }}
                                             </th>
-                                            <th scope="row" class="px-2 py-1 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                            <th scope="row" class="px-2 py-1 font-medium text-gray-900 dark:text-white">
                                                 @if ($item->sig == true)
                                                     Si
                                                 @else
                                                 @endif
                                             </th>
-                                            <th scope="row" class="px-2 py-1 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                            <th scope="row" class="px-2 py-1 font-medium text-gray-900 dark:text-white">
                                                 {{ $item->comentario }}
                                             </th>
                                         </tr>
@@ -116,7 +116,8 @@
                                 </tbody>
                             </table>
                         </div>
-                    </ul>
+                    </div>
+                   
                     @endforeach
                 </ol>
             </div>
@@ -145,7 +146,7 @@
                         @if ($softwares->where('recurso_id', $item->id)->count())
                             <ul class="list-disc list-outside pl-4">
                                 <div class="relative overflow-x-auto">
-                                    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                                    <table class="text-sm text-left text-gray-500 dark:text-gray-400 table-fixed">
                                         <thead class="text-xs text-gray-700 uppercase bg-gray-50">
                                             <tr class="border">
                                                 <th scope="col" class="px-3 py-1">

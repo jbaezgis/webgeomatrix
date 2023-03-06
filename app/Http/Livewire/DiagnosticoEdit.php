@@ -17,12 +17,13 @@ class DiagnosticoEdit extends Component
     
     public $diagnostico, $diagnosticoId;
     public $image;
+    public $modalTitleFormVisible = false;
     public $modalFormVisible = false;
     public $modalConfirmDeleteFlujo = false;
     public $modalConfirmDeleteCaracteristica = false;
     public $modalCaracteristicaFormVisible = false;
     public $flujos, $caracteristicas, $datos, $images;
-    public $objetivos_actividades, $estructura_organizativa, $observaciones_generales, $observaciones_medios;
+    public $oficina, $responsable, $objetivos_actividades, $estructura_organizativa, $observaciones_generales, $observaciones_medios;
     
     // Fotos
     public $imageId, $url, $model, $model_id;
@@ -39,6 +40,7 @@ class DiagnosticoEdit extends Component
     public $e_o;
     public $o_g;
     public $o_m;
+    public $of_res;
     
     protected $rules = [
         'url' => 'required|image|max:2048',
@@ -48,6 +50,8 @@ class DiagnosticoEdit extends Component
     public function mount($id)
     {
         $this->diagnostico = Diagnostico::find($id);
+        $this->oficina = $this->diagnostico->oficina;
+        $this->responsable = $this->diagnostico->responsable;
         $this->objetivos_actividades = $this->diagnostico->objetivos_actividades;
         $this->estructura_organizativa = $this->diagnostico->estructura_organizativa;
         $this->observaciones_generales = $this->diagnostico->observaciones_generales;
@@ -59,12 +63,16 @@ class DiagnosticoEdit extends Component
         $this->o_a = false;
         $this->e_o = false;
         $this->o_g = false;
-        $this->o_m = false;    
+        $this->o_m = false;  
+        $this->of_res = false;  
+
     }
 
     public function modelData()
     {
         return [
+            'oficina' => $this->oficina,
+            'responsable' => $this->responsable,
             'objetivos_actividades' => $this->objetivos_actividades,
             'estructura_organizativa' => $this->estructura_organizativa,
             'observaciones_generales' => $this->observaciones_generales,
@@ -77,6 +85,15 @@ class DiagnosticoEdit extends Component
         Diagnostico::where('id', $this->diagnostico->id)
             ->update($this->modelData());
         $this->resetButtons();
+    }
+
+    public function oficina_responsable()
+    {
+        Diagnostico::where('id', $this->diagnostico->id)->update([
+            'oficina' => $this->oficina,
+            'responsable' => $this->responsable,
+        ]);
+        $this->of_res = false;
     }
 
     public function objetivos_actividades()
@@ -170,6 +187,30 @@ class DiagnosticoEdit extends Component
         $this->modalFormVisible = true;
         $this->f_descripcion = $data->descripcion;
         
+    }
+
+    public function updateTitleShowModal($id)
+    {
+        // $this->reset(['f_diagnostico_id', 'f_descripcion']);
+        // $this->flujo_id = $id;
+        $data = Diagnostico::find($id);
+        // $this->diagnostico = Diagnostico::find($id);
+        $this->modalTitleFormVisible = true;
+        $this->oficina = $data->oficina;
+        $this->responsable = $data->responsable;
+        
+    }
+
+    public function updateTitle()
+    {
+        // $this->validate();
+        Diagnostico::where('id', $this->diagnostico->id)
+            ->update([
+                'oficina' => $this->oficina,
+                'responsable' => $this->responsable,
+            ]);
+        $this->reset(['oficina', 'responsable']);
+        $this->modalTitleFormVisible = false;
     }
 
     public function updateFlujo()

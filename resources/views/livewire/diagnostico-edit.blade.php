@@ -1,37 +1,72 @@
 @section('title', $diagnostico->oficina)
 <div>
-    <x-slot name="header">
-        <div class="lg:flex gap-2 items-center">
-            <div class="">
-                <a href="{{ url('admin/diagnosticos') }}" class="">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
-                    </svg>
-                </a>
+    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 px-2 bg-white py-6">
+        <div class="">
+            <div class="flex justify-between">
+                <div>
+                    <a href="{{ url('admin/diagnosticos') }}" class="text-white bg-gray-700 hover:bg-gray-800 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm pl-2 pr-3 py-2 dark:bg-gray-600 focus:outline-none">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 inline">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                        </svg>  Atrás
+                    </a>
+                </div>
+
+                <div class="">
+                    <a href="{{ url('admin/diagnostico/edit/'.$diagnostico->id.'/recursos') }}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Recursos</a>
+                </div>
             </div>
 
 
-            <div class="lg:flex justify-between flex-1 lg:w-64 text-center lg:text-left">
+            {{-- <div class="lg:flex justify-between flex-1 lg:w-64 text-center lg:text-left py-6">
                 
                 <div class="lg:flex gap-2 items-center">
                     <div><h1 class="font-semibold text-xl text-gray-800 leading-tight">{{ $diagnostico->oficina }}</h1></div>
                     <div class="text-gray-600">(Responsable: {{ $diagnostico->responsable }})</div>
                 </div>
-    
-                <div class="text-end">
+                
+                <div class="">
+                   
                     <div>{{ date('j/m/Y', strtotime($diagnostico->fecha)) }}</div>
                     <div class="text-sm text-gray-500">Version: {{ $diagnostico->version }}</div>
                 </div>
-            </div>
+
+                <div>
+                </div>
+            </div> --}}
         </div>
-       
-    </x-slot>
+
+        <div>
+            <div class="mt-4">
+                <x-jet-label for="entrada_proveedor" value="{{ __('Oficina') }}" />
+                <x-jet-input id="oficina" class="block mt-1 w-full" type="text" name="oficina"  wire:change="$set('of_res', 'true')"
+                    wire:model.debounce.500ms="oficina" />
+                @error('oficina')
+                    <span class="error">{{ $message }}</span>
+                @enderror
+            </div>
+
+            <div class="mt-4">
+                <x-jet-label for="responsable" value="{{ __('Responsable') }}" />
+                <x-jet-input id="responsable" class="block mt-1 w-full" type="text" name="responsable" wire:change="$set('of_res', 'true')"
+                    wire:model.debounce.500ms="responsable" />
+                @error('responsable')
+                    <span class="error">{{ $message }}</span>
+                @enderror
+            </div>
+
+            @if ($of_res)
+                <div class="flex justify-end mb-2 mt-4">
+                    <button wire:click="oficina_responsable" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded text-sm px-5 py-1 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Guardar</button>
+                </div>
+            @endif 
+        </div>
+        
+    </div>
+   
    
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 px-2">
-            <div class="flex justify-end mb-4">
-                <a href="{{ url('admin/diagnostico/edit/'.$diagnostico->id.'/recursos') }}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Recursos</a>
-            </div>
+           
             <div class="mb-2">
                 <label for="objetivos_actividades" class="block mb-2 text-gray-900 text-lg font-bold text-center">OBJETIVOS Y ACTIVIDADES</label>
                 <textarea wire:model="objetivos_actividades" wire:change="$set('o_a', 'true')" id="objetivos_actividades" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"></textarea>
@@ -615,4 +650,40 @@
         </x-slot>
     </x-jet-dialog-modal>
 
+    {{-- Editar Title --}}
+    <x-jet-dialog-modal wire:model="modalTitleFormVisible" maxWidth="5xl">
+        <x-slot name="title">
+            {{ __('Flujo') }}
+        </x-slot>
+
+        <x-slot name="content">
+            <div class="mt-4">
+                <x-jet-label for="entrada_proveedor" value="{{ __('Oficina') }}" />
+                <x-jet-input id="oficina" class="block mt-1 w-full" type="text" name="oficina"
+                    wire:model.debounce.500ms="oficina" />
+                @error('oficina')
+                    <span class="error">{{ $message }}</span>
+                @enderror
+            </div>
+
+            <div class="mt-4">
+                <x-jet-label for="responsable" value="{{ __('Responsable') }}" />
+                <x-jet-input id="responsable" class="block mt-1 w-full" type="text" name="responsable"
+                    wire:model.debounce.500ms="responsable" />
+                @error('responsable')
+                    <span class="error">{{ $message }}</span>
+                @enderror
+            </div>
+        </x-slot>
+
+        <x-slot name="footer">
+            <x-jet-secondary-button wire:click="$toggle('modalTitleFormVisible'), resetFDescription" wire:loading.attr="disabled">
+                {{ __('Cancel') }}
+            </x-jet-secondary-button>
+
+            <x-jet-button class="ml-3" wire:click="updateTitle" wire:loading.attr="disabled">
+                {{ __('Update') }}
+            </x-jet-button>
+        </x-slot>
+    </x-jet-dialog-modal>
 </div>
