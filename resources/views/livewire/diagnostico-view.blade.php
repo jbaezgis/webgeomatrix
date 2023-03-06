@@ -21,7 +21,7 @@
 
         <div class="px-2">
             <div class="font-bold text-gray-700">OBJETIVOS Y ACTIVIDADES</div>
-            <div class="text-gray-700">{{ $diagnostico->objetivos_actividades }}</div>
+            <div class="text-gray-700 whitespace-pre-line">{{ $diagnostico->objetivos_actividades }}</div>
         </div>
 
         <div class="px-2 mt-6">
@@ -48,7 +48,7 @@
 
         <div class="px-2 mt-6">
             <div class="font-bold text-gray-700">OBSERVACIONES GENERALES</div>
-            <div class="">{{ $diagnostico->observaciones_generales }}</div>
+            <div class="whitespace-pre-line">{{ $diagnostico->observaciones_generales }}</div>
         </div>
 
         <div class="px-2 mt-6 border-t pt-4">
@@ -68,7 +68,7 @@
                     <div>
                         <div class="text-xl py-2 font-bold">{{ $item->descripcion }}</div>
                         <div>
-                            <table class="w-full text-sm text-left text-gray-500 table-fixed">
+                            <table class="w-full text-sm text-left text-gray-500 table-auto">
                                 <thead class="text-xs text-gray-700 uppercase bg-gray-50">
                                     <tr class="border">
                                         <th scope="col" class="px-3 py-1">
@@ -125,7 +125,7 @@
 
         <div class="px-2 mt-6 border-t pt-6">
             <div class="font-bold text-gray-700">OBSERVACIONES SOBRE LOS MEDIOS DISPONIBLES PARA EL TRATAMIENTO DE INFORMACIÓN</div>
-            <div class="">{{ $diagnostico->observaciones_generales }}</div>
+            <div class="whitespace-pre-line">{{ $diagnostico->observaciones_generales }}</div>
         </div>
 
         <div class="px-2 mt-6 border-t pt-4 mb-8">
@@ -146,7 +146,7 @@
                         @if ($softwares->where('recurso_id', $item->id)->count())
                             <ul class="list-disc list-outside pl-4">
                                 <div class="relative overflow-x-auto">
-                                    <table class="text-sm text-left text-gray-500 dark:text-gray-400 table-fixed">
+                                    <table class="text-sm text-left text-gray-500 dark:text-gray-400 table-auto">
                                         <thead class="text-xs text-gray-700 uppercase bg-gray-50">
                                             <tr class="border">
                                                 <th scope="col" class="px-3 py-1">
@@ -176,22 +176,22 @@
                                             @foreach ($softwares->where('recurso_id', $item->id) as $item)
                                                 <tr class="bg-white border dark:border-gray-700 hover:bg-gray-50">
                                                 
-                                                    <th scope="row" class="px-2 py-1 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                    <th scope="row" class="px-2 py-1 font-medium text-gray-900 dark:text-white">
                                                         {{ $item->aplicacion }}
                                                     </th>
-                                                    <th scope="row" class="px-2 py-1 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                    <th scope="row" class="px-2 py-1 font-medium text-gray-900 dark:text-white">
                                                         {{ $item->desarrollador }}
                                                     </th>
-                                                    <th scope="row" class="px-2 py-1 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                    <th scope="row" class="px-2 py-1 font-medium text-gray-900 dark:text-white">
                                                         {{ $item->tipo_licencia }}
                                                     </th>
-                                                    <th scope="row" class="px-2 py-1 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                    <th scope="row" class="px-2 py-1 font-medium text-gray-900 dark:text-white">
                                                         {{ $item->uso }}
                                                     </th>
-                                                    <th scope="row" class="px-2 py-1 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                    <th scope="row" class="px-2 py-1 font-medium text-gray-900 dark:text-white">
                                                         {{ $item->frecuencia_uso }}
                                                     </th>
-                                                    <th scope="row" class="px-2 py-1 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                    <th scope="row" class="px-2 py-1 font-medium text-gray-900 dark:text-white">
                                                         {{ $item->personal_asignado }}
                                                     </th>
                                                 

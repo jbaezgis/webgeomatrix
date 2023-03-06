@@ -209,7 +209,7 @@
                 </div>
 
                 <div class="relative overflow-x-auto">              
-                    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 table-auto">
                         <thead class="text-xs text-gray-700 uppercase bg-gray-50">
                             <tr class="border">
                                 <th scope="col" class="px-3 py-2">
@@ -239,28 +239,28 @@
                             @foreach ($recursos as $item)
                                 <tr class="bg-white border dark:border-gray-700 hover:bg-gray-50">
                                 
-                                    <th scope="row" class="px-2 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    <th scope="row" class="px-2 py-3 font-medium text-gray-900 dark:text-white">
                                         {{ $item->equipo }}
                                     </th>
-                                    <th scope="row" class="px-2 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    <th scope="row" class="px-2 py-3 font-medium text-gray-900 dark:text-white">
                                         {{ $item->marca_modelo }}
                                     </th>
-                                    <th scope="row" class="px-2 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    <th scope="row" class="px-2 py-3 font-medium text-gray-900 dark:text-white">
                                         {{ $item->capacidades }}
                                     </th>
-                                    <th scope="row" class="px-2 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    <th scope="row" class="px-2 py-3 font-medium text-gray-900 dark:text-white">
                                         @if ($item->red_servidor == true)
                                             Si
                                         @else
                                         @endif
                                     </th>
-                                    <th scope="row" class="px-2 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    <th scope="row" class="px-2 py-3 font-medium text-gray-900 dark:text-white">
                                         @if ($item->acceso_internet == true)
                                             Si
                                         @else
                                         @endif
                                     </th>
-                                    <th scope="row" class="px-2 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    <th scope="row" class="px-2 py-3 font-medium text-gray-900 dark:text-white">
                                         {{ $item->personal_asignado }}
                                     </th>
                                 
@@ -382,7 +382,7 @@
             <div class="">
                 <div class="relative overflow-x-auto">
                     
-                    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 table-auto">
                         <thead class="text-xs text-gray-700 uppercase bg-gray-50">
                             <tr class="border">
                                 <th scope="col" class="px-3 py-1">
@@ -412,22 +412,22 @@
                             @foreach ($softwares->where('recurso_id', $recursoId) as $item)
                                 <tr class="bg-white border dark:border-gray-700 hover:bg-gray-50">
                                 
-                                    <th scope="row" class="px-2 py-1 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    <th scope="row" class="px-2 py-1 font-medium text-gray-900 dark:text-white">
                                         {{ $item->aplicacion }}
                                     </th>
-                                    <th scope="row" class="px-2 py-1 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    <th scope="row" class="px-2 py-1 font-medium text-gray-900 dark:text-white">
                                         {{ $item->desarrollador }}
                                     </th>
-                                    <th scope="row" class="px-2 py-1 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    <th scope="row" class="px-2 py-1 font-medium text-gray-900 dark:text-white">
                                         {{ $item->tipo_licencia }}
                                     </th>
-                                    <th scope="row" class="px-2 py-1 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    <th scope="row" class="px-2 py-1 font-medium text-gray-900 dark:text-white">
                                         {{ $item->uso }}
                                     </th>
-                                    <th scope="row" class="px-2 py-1 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    <th scope="row" class="px-2 py-1 font-medium text-gray-900 dark:text-white">
                                         {{ $item->frecuencia_uso }}
                                     </th>
-                                    <th scope="row" class="px-2 py-1 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    <th scope="row" class="px-2 py-1 font-medium text-gray-900 dark:text-white">
                                         {{ $item->personal_asignado }}
                                     </th>
                                 
