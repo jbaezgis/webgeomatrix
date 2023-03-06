@@ -125,7 +125,7 @@
 
         <div class="px-2 mt-6 border-t pt-6">
             <div class="font-bold text-gray-700">OBSERVACIONES SOBRE LOS MEDIOS DISPONIBLES PARA EL TRATAMIENTO DE INFORMACIÓN</div>
-            <div class="whitespace-pre-line">{{ $diagnostico->observaciones_generales }}</div>
+            <div class="whitespace-pre-line">{{ $diagnostico->observaciones_medios }}</div>
         </div>
 
         <div class="px-2 mt-6 border-t pt-4 mb-8">
