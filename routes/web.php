@@ -11,6 +11,7 @@ use App\Http\Livewire\Diagnosticos;
 use App\Http\Livewire\DiagnosticoView;
 use App\Http\Livewire\Gts;
 use App\Http\Livewire\HardwareReport;
+use App\Http\Livewire\FlujosReport;
 use App\Http\Livewire\PrivacyPolicy;
 use App\Http\Livewire\Quejas\Quejas;
 use App\Http\Livewire\SoftwaresReport;
@@ -53,6 +54,7 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'),'verified'])
     // Reportes
     Route::get('/diagnostico/hardware-report', HardwareReport::class)->name('hardware-report');
     Route::get('/diagnostico/softwares-report', SoftwaresReport::class)->name('softwares-report');
+    Route::get('/diagnostico/flujos-report', FlujosReport::class)->name('flujos-report');
 
 
     // Quejas
