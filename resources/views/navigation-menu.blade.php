@@ -38,9 +38,12 @@
                         <x-jet-nav-link href="{{ url('admin/diagnosticos') }}" :active="request()->is('admin/diagnosticos')">
                             {{ __('Diagnósticos') }}
                         </x-jet-nav-link>
+                        
+                        @hasrole('Admin')
                         <x-jet-nav-link href="{{ url('admin/quejas') }}" :active="request()->is('admin/quejas')">
                             {{ __('Quejas') }}
                         </x-jet-nav-link>
+                        @endhasrole
                     @endauth
                 </div>
             </div>
@@ -105,6 +108,7 @@
                 @endguest
 
                 @auth
+                @hasrole('Admin')
                 <div class="">
                     {{-- Admin dropdown menu --}}
                     <x-jet-dropdown align="right" width="60">
@@ -159,10 +163,10 @@
                                 <div class="block px-4 py-2 text-xs text-gray-400">
                                     {{ __('System') }}
                                 </div>
-                                <x-jet-dropdown-link href="#" class="{{ request()->routeIs('users*') ? 'text-gray-700 bg-gray-200' : '' }}">
+                                <x-jet-dropdown-link href="{{ route('admin.users.index') }}" class="{{ request()->routeIs('users*') ? 'text-gray-700 bg-gray-200' : '' }}">
                                     {{ __('Users') }}
                                 </x-jet-dropdown-link>
-                                <x-jet-dropdown-link href="#">
+                                <x-jet-dropdown-link href="{{ route('admin.roles.index') }}" class="{{ request()->routeIs('roles*') ? 'text-gray-700 bg-gray-200' : '' }}">
                                     {{ __('Roles and Permisions') }}
                                 </x-jet-dropdown-link>
                                 <x-jet-dropdown-link href="#">
@@ -179,6 +183,8 @@
                     </x-jet-dropdown>
 
                 </div>
+                @endhasrole
+
                     <div class="ml-3 relative">
                         <x-jet-dropdown align="right" width="48">
                             <x-slot name="trigger">

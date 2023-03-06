@@ -17,6 +17,8 @@ use App\Http\Livewire\Quejas\Quejas;
 use App\Http\Livewire\SoftwaresReport;
 use App\Http\Livewire\Support;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -59,5 +61,9 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'),'verified'])
 
     // Quejas
     Route::get('quejas', Quejas::class)->name('quejas');
+
+    // Users and Roles
+    Route::resource('roles', RoleController::class);
+    Route::resource('users', UserController::class);
 
 });
