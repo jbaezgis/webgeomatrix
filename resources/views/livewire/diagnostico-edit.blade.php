@@ -249,7 +249,7 @@
     
                                     <div class="relative overflow-x-auto">
                                         
-                                        <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                                        <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 table-fixed">
                                             <thead class="text-xs text-gray-700 uppercase bg-gray-50">
                                                 <tr class="border">
                                                     <th scope="col" class="px-3 py-1">
@@ -276,22 +276,22 @@
                                                 @foreach ($caracteristicas->where('flujo_id', $item->id) as $item)
                                                     <tr class="bg-white border dark:border-gray-700 hover:bg-gray-50">
                                                     
-                                                        <th scope="row" class="px-2 py-1 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                        <th scope="row" class="px-2 py-1 font-medium text-gray-900 dark:text-white">
                                                             {{ $item->entrada_proveedor }}
                                                         </th>
-                                                        <th scope="row" class="px-2 py-1 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                        <th scope="row" class="px-2 py-1 font-medium text-gray-900 dark:text-white">
                                                             {{ $item->tratamiento }}
                                                         </th>
-                                                        <th scope="row" class="px-2 py-1 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                        <th scope="row" class="px-2 py-1 font-medium text-gray-900 dark:text-white">
                                                             {{ $item->salida_cliente }}
                                                         </th>
-                                                        <th scope="row" class="px-2 py-1 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                        <th scope="row" class="px-2 py-1 font-medium text-gray-900 dark:text-white">
                                                             @if ($item->sig == true)
                                                                 Si
                                                             @else
                                                             @endif
                                                         </th>
-                                                        <th scope="row" class="px-2 py-1 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                        <th scope="row" class="px-2 py-1 font-medium text-gray-900 dark:text-white">
                                                             {{ $item->comentario }}
                                                         </th>
                                                     
@@ -450,7 +450,7 @@
                 <div class="relative overflow-x-auto">
                     
                     <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                        <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+                        <thead class="text-xs text-gray-700 uppercase bg-gray-50 table-fixed">
                             <tr class="border">
                                 <th scope="col" class="px-3 py-1">
                                     Entrada / Proveedor
@@ -476,22 +476,22 @@
                             @foreach ($caracteristicas->where('flujo_id', $flujo_id) as $item)
                                 <tr class="bg-white border dark:border-gray-700 hover:bg-gray-50">
                                 
-                                    <th scope="row" class="px-2 py-1 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    <th scope="row" class="px-2 py-1 font-medium text-gray-900 dark:text-white">
                                         {{ $item->entrada_proveedor }}
                                     </th>
-                                    <th scope="row" class="px-2 py-1 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    <th scope="row" class="px-2 py-1 font-medium text-gray-900 dark:text-white">
                                         {{ $item->tratamiento }}
                                     </th>
-                                    <th scope="row" class="px-2 py-1 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    <th scope="row" class="px-2 py-1 font-medium text-gray-900 dark:text-white">
                                         {{ $item->salida_cliente }}
                                     </th>
-                                    <th scope="row" class="px-2 py-1 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    <th scope="row" class="px-2 py-1 font-medium text-gray-900 dark:text-white">
                                         @if ($item->sig == true)
                                             Si
                                         @else
                                         @endif
                                     </th>
-                                    <th scope="row" class="px-2 py-1 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    <th scope="row" class="px-2 py-1 font-medium text-gray-900 dark:text-white">
                                         {{ $item->comentario }}
                                     </th>
                                 
