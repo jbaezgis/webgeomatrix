@@ -12,7 +12,7 @@
     
                 <div class="text-end mt-4">
                     <div>{{ date('j/m/Y', strtotime($diagnostico->fecha)) }}</div>
-                    <div class="text-sm text-gray-500">Version: {{ $diagnostico->version }}</div>
+                    {{-- <div class="text-sm text-gray-500">Version: {{ $diagnostico->version }}</div> --}}
                 </div>
             </div>
         </div>
