@@ -134,6 +134,8 @@
                             <option value="Desktop">Desktop</option>
                             <option value="Laptop">Laptop</option>
                             <option value="Servidor">Servidor</option>
+                            <option value="Tablet">Tablet</option>
+                            <option value="Smart Phone">Smart Phone</option>
                             <option value="Impresora">Impresora</option>
                         </select>
                         @error('equipo')
