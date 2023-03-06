@@ -38,7 +38,7 @@
                         <x-jet-nav-link href="{{ url('admin/diagnosticos') }}" :active="request()->is('admin/diagnosticos')">
                             {{ __('Diagnósticos') }}
                         </x-jet-nav-link>
-                        
+
                         @hasrole('Admin')
                         <x-jet-nav-link href="{{ url('admin/quejas') }}" :active="request()->is('admin/quejas')">
                             {{ __('Quejas') }}
@@ -263,9 +263,11 @@
                 <x-jet-responsive-nav-link href="{{ url('admin/diagnosticos') }}" :active="request()->is('admin/diagnosticos')">
                     {{ __('Diagnósticos') }}
                 </x-jet-responsive-nav-link>
+                @hasrole('Admin')
                 <x-jet-responsive-nav-link href="{{ url('admin/quejas') }}" :active="request()->is('admin/Quejas')">
                     {{ __('Quejas') }}
                 </x-jet-responsive-nav-link>
+                @endhasrole
             @endauth
             @guest
                 <x-jet-responsive-nav-link href="{{ route('login') }}" :active="request()->routeIs('login')">
