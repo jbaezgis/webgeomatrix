@@ -5,7 +5,7 @@
             
             <div class="text-3xl">Diagnósticos</div>
             <div>
-                <a href="{{ url('admin/diagnostico/flujos-report') }}" class="text-white bg-gray-700 hover:bg-gray-800 focus:ring-4 focus:ring-gray-300 font-medium rounded text-sm px-5 py-2 mr-2 mb-2">Reporte de Flujos</a>
+                <a href="{{ url('admin/diagnostico/flujos-report') }}" class="text-white bg-gray-700 hover:bg-gray-800 focus:ring-4 focus:ring-gray-300 font-medium rounded text-sm px-5 py-2 mr-2 mb-2"> Resumen del flujo de la informacións</a>
                 <a href="{{ url('admin/diagnostico/hardware-report') }}" class="text-white bg-gray-700 hover:bg-gray-800 focus:ring-4 focus:ring-gray-300 font-medium rounded text-sm px-5 py-2 mr-2 mb-2">Reporte de Hardware</a>
                 <a href="{{ url('admin/diagnostico/softwares-report') }}" class="text-white bg-gray-700 hover:bg-gray-800 focus:ring-4 focus:ring-gray-300 font-medium rounded text-sm px-5 py-2 mr-2 mb-2">Reporte de Software</a>
                 @can('diagnosticos-create') 

@@ -1,7 +1,7 @@
 <div>
     <div class="max-w-7xl mx-auto px-2 py-6">
         <div class="flex justify-between pb-6">
-            <div class="text-3xl">Reporte de Softwares</div>
+            <div class="text-3xl">Resumen del flujo de la información</div>
         </div>
 
         @foreach ($diagnosticos as $diagnostico)
